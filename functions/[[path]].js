@@ -729,8 +729,9 @@ function generateHtml(urls, img, icon, avatar, beian, title, siteName, jumpDelay
 			const timeoutId = setTimeout(() => controller.abort(), 3000);
 
 			try {
-				const response = await fetch(url, {
+				await fetch(url, {
 					method: 'HEAD',
+					mode: 'no-cors',
 					signal: controller.signal,
 					cache: 'no-store',
 					redirect: 'follow'
@@ -741,8 +742,8 @@ function generateHtml(urls, img, icon, avatar, beian, title, siteName, jumpDelay
 
 				return {
 					latency,
-					ok: response.status === 200,
-					status: response.status
+					ok: true,
+					status: 0
 				};
 			} catch (error) {
 				clearTimeout(timeoutId);
