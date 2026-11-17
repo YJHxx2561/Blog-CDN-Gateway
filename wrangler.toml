@@ -1,0 +1,4 @@
+name = "blog-cdn-gateway"
+main = "functions/[[path]].js"
+compatibility_date = "2025-06-21"
+keep_vars = true
